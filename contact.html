@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ch">
+	<head>
+		<title>HALLOWEEN</title>
+		<link rel="stylesheet" href="contact.css">
+		<link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<header>
+			<a href="#" class="logo">HAPPY HALLOWEEN!</a>
+			<ul>
+				<li><a href="la_index.html">主页 HOME</a></li>
+				<li><a href="la_about.html">门票 TICKET</a></li>
+				<li><a href="la_game.html">游戏 GAME</a></li>
+				<li><a href="la_contact.html" class="active">联系我们 CONTACT</a></li>
+			</ul>
+		</header>
+
+		<div class="container">
+			<h1>联系我们</h1>
+			<form id="contactForm">
+				<input type="text" id="name" placeholder="你的姓名" required>
+				<input type="email" id="email" placeholder="你的邮箱" required>
+				<textarea id="message" placeholder="你的留言" rows="5" required></textarea>
+				<button type="submit">发送</button>
+			</form>
+		</div>
+		<div id="image-container">
+			<img id="moving-image" src="images/b1.png" alt="Moving Image">
+		</div>
+
+		 <script>
+		        const imageContainer = document.getElementById('image-container');
+		        const movingImage = document.getElementById('moving-image');
+		        const numImages = 15;
+		        let currentImageIndex = 0;
+		        // 让图片从右下角出发
+		        let x = 800;
+		        let y = 100;
+		        let directionX = -1;
+		        let directionY = -1;
+		        let lastDirectionX = directionX;
+		        let lastDirectionY = directionY;
+		
+		        // 切换图片
+		        function changeImage() {
+		            currentImageIndex = (currentImageIndex + 1) % numImages;
+		            movingImage.src = `images/b${currentImageIndex + 1}.png`;
+		        }
+		
+		        // 无规律移动图片并旋转
+		        function moveImageRandomly() {
+		            const maxX = 810;
+		            const maxY = 170;
+		
+		            // 随机步长
+		            const stepX = Math.floor(Math.random() * 10) + 1;
+		            const stepY = Math.floor(Math.random() * 10) + 1;
+		
+		            // 随机改变方向
+		            if (Math.random() < 0.02) {
+		                directionX = Math.random() < 0.5 ? -1 : 1;
+		            }
+		            if (Math.random() < 0.02) {
+		                directionY = Math.random() < 0.5 ? -1 : 1;
+		            }
+		
+		            // 计算新位置
+		            let newX = x + stepX * directionX;
+		            let newY = y + stepY * directionY;
+		
+		                 // 检查边界
+		                 if (newX < 0) {
+		                   newX = 0;
+		                   directionX = 1; // 反转水平方向
+		                 } else if (newX > maxX) {
+		                   newX = maxX;
+		                   directionX = -1; // 反转水平方向
+		                 }
+		                 if (newY < 0) {
+		                   newY = 0;
+		                   directionY = 1; // 反转垂直方向
+		                 } else if (newY > maxY) {
+		                   newY = maxY;
+		                   directionY = -1; // 反转垂直方向
+		                 }
+		
+		            x = newX;
+		            y = newY;
+		
+		            if (directionX!== lastDirectionX || directionY!== lastDirectionY) {
+		                // 计算旋转角度，加上 90 度来修正偏差
+		                const angle = Math.atan2(directionY, directionX) * (180 / Math.PI) + 90;
+		                movingImage.style.transform = `rotate(${angle}deg)`;
+		                lastDirectionX = directionX;
+		                lastDirectionY = directionY;
+		            }
+		
+		            movingImage.style.left = `${x}px`;
+		            movingImage.style.top = `${y}px`;
+		        }
+		
+		        // 定时切换图片
+		        setInterval(changeImage, 150);
+		
+		        // 定时移动图片
+		        setInterval(moveImageRandomly, 100);
+		
+		        // 初始旋转角度设置为 -45°，面朝左上角
+		        movingImage.style.transform = 'rotate(-45deg)';
+		
+		        document.getElementById('contactForm').addEventListener('submit', function (e) {
+		            e.preventDefault();
+		            const name = document.getElementById('name').value;
+		            const email = document.getElementById('email').value;
+		            const message = document.getElementById('message').value;
+		
+		            if (name && email && message) {
+		                alert('感谢你的留言！我们会尽快回复你。');
+		                this.reset();
+		            } else {
+		                alert('请填写所有必填字段。');
+		            }
+		        });
+		    </script>
+
+	</body>
+</html>

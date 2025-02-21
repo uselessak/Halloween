@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+  <title>HALLOWEEN</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel="stylesheet" href="game.css">
+</head>
+<body>
+	<header>
+    <a href="#" class="logo">HAPPY HALLOWEEN!</a>
+    <ul>
+      <li><a href="la_index.html">主页 HOME</a></li>
+      <li><a href="la_about.html">门票 TICKET</a></li>
+      <li><a href="la_game.html" class="active">游戏 GAME</a></li>
+      <li><a href="la_contact.html">联系我们 CONTACT</a></li>
+    </ul>
+  </header>
+
+<div class="scene-container stars-out" tabindex="1">
+  <div class="ghost-container">
+    <div class="ghost">
+      <!-- 鬼魂的头部、眼睛、嘴、腮红 -->
+      <div class="ghost-head">
+        <div class="ghost-face">
+          <div class="eyes-row">
+            <div class="eye left"></div>
+            <div class="eye right"></div>
+          </div>
+          <div class="mouth-row">
+            <div class="cheek left"></div>
+            <div class="mouth">
+              <div class="mouth-top"></div>
+              <div class="mouth-bottom"></div>
+            </div>
+            <div class="cheek right"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 鬼魂的身体 -->
+      <div class="ghost-body">
+        <div class="ghost-hand hand-left"></div>
+        <div class="ghost-hand hand-right"></div>
+        <div class="ghost-skirt">
+          <div class="pleat down"></div>
+          <div class="pleat up"></div>
+          <div class="pleat down"></div>
+          <div class="pleat up"></div>
+          <div class="pleat down"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 装饰部分 -->
+    <div class="stars">
+      <div class="star orange pointy star-1"><div class="star-element"></div></div>
+      <div class="star orange pointy star-2"><div class="star-element"></div></div>
+      <div class="star yellow pointy star-3"><div class="star-element"></div></div>
+      <div class="star yellow pointy star-4"><div class="star-element"></div></div>
+      <div class="star blue round star-5"><div class="star-element"></div></div>
+      <div class="star blue round star-6"><div class="star-element"></div></div>
+    </div>
+  </div>
+
+  <!-- 阴影 -->
+  <div class="shadow-container">
+    <div class="shadow"></div>
+    <div class="shadow-bottom"></div>
+  </div>
+  <div class="instructions-box">
+      <p>小鬼魂会躲避你的鼠标。</p>
+   </div>
+  <!-- 更多游戏导航栏 -->
+  <div class="more-games-nav">
+	- ——————<br/>更多游戏<br/>—————— -
+    <div class="more-games-images">
+      <img src="images/game1.jpg" alt="游戏 1">
+      <img src="images/game2.jpg" alt="游戏 2">
+      <img src="images/game3.jpg" alt="游戏 3">
+    </div>
+  </div>
+</div>
+<!-- partial -->
+  <script src="game.js"></script>
+
+</body>
+</html>

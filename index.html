@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+  <title>HALLOWEEN</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <header>
+    <a href="#" class="logo">HAPPY HALLOWEEN!</a>
+    <ul>
+      <li><a href="la_index.html" class="active">主页 HOME</a></li>
+      <li><a href="la_about.html">门票 TICKET</a></li>
+      <li><a href="la_game.html">游戏 GAME</a></li>
+      <li><a href="la_contact.html">联系我们 CONTACT</a></li>
+    </ul>
+  </header>
+  <section>
+    <img src="images/stars.png" id="stars">
+    <img src="images/moon.png" id="moon">
+    <img src="images/mountains_behind.png" id="mountains_behind">
+    <h2 id="text">Trick OR Treat</h2>
+    <a href="#sec" id="btn">引导</a>
+    <img src="images/mountains_front.png" id="mountains_front">
+  </section>
+  <div class="sec" id="sec">
+    <h2>Halloween Party</h2>
+    <p>欢迎来到“幽灵之门”——您的专属万圣节派对通行证！在这里，我们为您揭开一年一度最惊悚、最狂欢的夜晚序幕。只需轻轻一点，您就能获得进入幽灵世界的钥匙。我们的派对门票种类繁多，从“吸血鬼的晚宴”到“女巫的集会”，每一场都独一无二，充满惊喜与刺激。购买门票的您，还将享有优先入场、特别礼物以及参与恐怖游戏的机会。加入我们，让这个万圣节成为您记忆中最难忘的一夜！立即预订，席位有限，幽灵们正等着您的到来！</p>
+
+  <script>
+    let stars = document.getElementById('stars')
+    let moon = document.getElementById('moon')
+    let mountains_behind = document.getElementById('mountains_behind')
+    let text = document.getElementById('text')
+    let btn = document.getElementById('btn')
+    let mountains_front = document.getElementById('mountains_front')
+    let header = document.querySelector('header')
+
+    window.addEventListener('scroll', function(){
+      let value = window.scrollY;
+      stars.style.left = value * 0.25 + 'px'
+      moon.style.top = value * 1.05 + 'px'
+      mountains_behind.style.top = value * 0.5 + 'px'
+      mountains_front.style.top = value * 0 + 'px'
+      text.style.marginRight = value * 4 + 'px'
+      text.style.marginTop = value * 1.5 + 'px'
+      btn.style.marginTop = value * 1.5 + 'px'
+      header.style.top = value * 0.5 + 'px'
+    })
+  </script>
+</body>
+</html>

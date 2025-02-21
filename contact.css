@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Form</title>
+  <!-- 引入字体 -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Open+Sans:wght@400;500;600;700&display=swap">
+  <style>
+    /* 全局样式 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      --ffTwo: 'Berkshire Swash', cursive;
+      /* 当用户手动导航或者 CSSOM scrolling API 触发滚动操作时 */
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Creepster', cursive;
+      background-color: #000;
+      color: #ff6600;
+      margin: 0;
+      padding: 0;
+      background-image: url('images/contact.png');
+      background-size: cover;
+      background-position: center;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow-x: hidden;
+    }
+
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 30px 0px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10000;
+    }
+
+    header .logo {
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 2em;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    header ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    header ul li {
+      list-style: none;
+      margin-left: 5px;
+    }
+
+    header ul li a {
+      font-family: var(--ffTwo);
+      text-decoration: none;
+      padding: 6px 15px;
+      color: #fff;
+      border-radius: 20px;
+    }
+
+    header ul li a:hover,
+    header ul li a.active {
+      background: #fff;
+      color: #2b1055;
+    }
+
+    /* 容器样式 */
+    .container {
+      background-color: rgba(0, 0, 0, 0.7);
+      width: 50%;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 159, 24, 0.4);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    /* 标题样式 */
+    h1 {
+      text-align: center;
+      font-size: 48px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #ff6600;
+      animation: flicker 1.5s infinite alternate;
+    }
+
+    @keyframes flicker {
+      0% {
+        opacity: 0.8;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    /* 表单样式 */
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    input,
+    textarea {
+      padding: 15px;
+      margin-bottom: 25px;
+      border: 2px solid transparent;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #ff6600;
+      font-family: 'Creepster', cursive;
+      font-size: 20px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #ff6600;
+      box-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+    }
+
+    button {
+      padding: 15px;
+      border: none;
+      border-radius: 5px;
+      background-color: #ff6600;
+      color: #000;
+      font-family: 'Creepster', cursive;
+      font-size: 24px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    button:hover {
+      background-color: #ff9900;
+      transform: scale(1.05);
+    }
+
+    button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.5s ease;
+    }
+
+    button:hover::before {
+      left: 100%;
+    }
+
+    /* 动画效果 */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    #image-container {
+      position: relative;
+      /* 调整尺寸 */
+      width: 100%;
+      height: auto;
+    }
+
+    img {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      transform-origin: center;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a href="#" class="logo">Logo</a>
+    <ul>
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </header>
+  <div class="container">
+    <h1>Contact Us</h1>
+    <form>
+      <input type="text" placeholder="Name">
+      <input type="email" placeholder="Email">
+      <textarea placeholder="Message"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+  <div id="image-container">
+    <img src="your-image.jpg" alt="Image">
+  </div>
+</body>
+
+</html>

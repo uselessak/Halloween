@@ -1,0 +1,465 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Open+Sans:wght@400;500;600;700&display=swap');
+/* 相册的字体库和 icons 库 */
+@import url("https://fonts.googleapis.com/css?family=Heebo:800");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:'Poppins', sans-serif;
+  --ffTwo: 'Berkshire Swash', cursive;
+  /* 当用户手动导航或者 CSSOM scrolling API 触发滚动操作时 */
+  scroll-behavior: smooth; 
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: linear-gradient(#2b1055,#7597de);
+}
+
+
+
+p {
+    font-size: 1rem;
+    line-height: 2rem;
+    color: #e2e8ff;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+}
+
+section {
+    padding-top: 6rem;
+    position: relative;
+    overflow: hidden;
+}
+
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10000;
+}
+
+header .logo {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 2em;
+  text-transform: uppercase; /* 大写 */
+  letter-spacing: 2px; /* 字符间距 */
+}
+
+header ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header ul li {
+  list-style: none;
+  margin-left: 20px;
+}
+
+header ul li a {
+    font-family: var(--ffTwo);
+  text-decoration: none;
+  padding: 6px 15px;
+  color: #fff;
+  border-radius: 20px;
+}
+
+header ul li a:hover,
+header ul li a.active {
+  background: #fff;
+  color: #2b1055;
+}
+
+
+/* 关于我们部分的容器样式 */
+.about {
+    padding: 100px 0; /* 上下内边距为 100px，左右为 0 */
+    position: relative; /* 相对定位*/
+    background-image: url('images/Skull.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* 容器样式 */
+.container {
+    width: 90%; 
+    max-width: 1200px; /* 最大宽度为 1200px */
+    margin: 0 auto; /* 水平居中 */
+}
+
+/* 行样式 */
+.row {
+    display: flex; /* 使用 Flexbox 布局 */
+    flex-direction: row; /* 水平排列子元素 */
+    flex-wrap: wrap; /* 允许子元素换行 */
+    justify-content: space-between; /* 子元素均匀分布 */
+    align-items: center; /* 子元素垂直居中 */
+    text-align: center; /* 文本居中对齐 */
+}
+
+/* 标题样式 */
+.title {
+    font-family: var(--ffTwo); /* 使用之前定义的花体字体 */
+    font-size: 3.5em; /* 字体大小为 3.5 倍 */
+    color: #fff; /* 字体颜色为白色 */
+    margin-bottom: 30px; /* 底部外边距为 30px */
+}
+
+/* 关于文本样式 */
+.about-text {
+    color: #fff; /* 字体颜色为白色 */
+    font-size: 1.2em; /* 字体大小为 1.2 倍 */
+    line-height: 1.8; /* 行高为 1.8 倍 */
+}
+
+/* 段落样式 */
+.about-text p {
+	font-family: var(--ffTwo);
+    margin-bottom: 20px; /* 段落底部外边距为 20px */
+    text-align: left;
+	font-size: 1.6ch;
+}
+
+
+.gallery{
+    padding: 100px 0; /* 上下内边距为 100px，左右为 0 */
+    position: relative; /* 相对定位*/
+    background-image: url('images/gallery-background-image.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* 容器样式 */
+.container {
+    width: 100%; 
+    max-width: 1200px; /* 最大宽度为 1200px */
+    margin: 0 auto; /* 水平居中 */
+}
+
+.gallery .container>h2 {
+    padding-top: 6.5rem;
+    text-align: center;
+    font-size: 2.8rem;
+}
+
+.gallery {
+    padding: 100px 0; /* 上下内边距为 100px，左右为 0 */
+    position: relative; /* 相对定位*/
+    background: url(images/gallery-background-image.jpg) no-repeat center / cover;
+}
+
+.gallery .container>h2 {
+    padding-top: 6.5rem;
+}
+
+.gallery .container>h2,
+.ticket .container>h2,
+.actor .container>h2,
+{
+    padding-top: 6.5rem;
+    text-align: center;
+    font-size: 2.8rem;
+}
+
+.gallery .container .row .gallery-box {
+    width: calc(25% - 20px); /* 每个 gallery-box 宽度为 25%，减去左右边距 */
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.gallery .container .row .gallery-box .gallery-img h2 {
+    font-size: 2rem;
+    padding-left: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 0;
+	color:#ff0000;
+}
+
+.gallery .container .row .gallery-box .gallery-img h5 {
+    font-size: 1rem;
+    color: #fff;
+    padding-left: 1.5rem;
+}
+
+.gallery .container .row .gallery-box .gallery-img .gallery-overlay {
+    position: relative;
+    cursor: pointer;
+}
+
+.gallery .container .row .gallery-box .gallery-img .gallery-overlay .overlay {
+    position: absolute;
+    width: 100%;
+    height: 0;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    transition: all .5s ease;
+}
+
+.gallery .container .row .gallery-box .gallery-img .gallery-overlay:hover .overlay {
+    height: 100%;
+}
+
+.gallery .row .gallery-box .gallery-img .gallery-overlay .overlay .gallery-icon {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 1.5rem;
+}
+
+.gallery .row .gallery-box .gallery-img .gallery-overlay .overlay .gallery-icon ul li {
+    margin-bottom: .5rem;
+}
+
+/* 分享按钮样式 */
+.share-button {
+    color: #fff;
+    font-size: 1.5rem;
+    margin: 1rem;
+    transition: color 0.3s ease;
+}
+
+.share-button:hover {
+    color: #ffffff;
+}
+
+        .actor {
+            padding: 0px 0; /* 上下内边距为 100px，左右为 0 */
+            position: relative; /* 相对定位*/
+                        /* 设置背景图片，不重复，居中显示，并拉伸填满容器 */
+                        background: url(images/actor-background-image.jpg) no-repeat center;
+                        background-size: 100% 100%;
+                        /* 设置页面高度为视口高度，方便查看效果 */
+                        height: 100vh;
+                        margin: 0;
+        }
+        
+        .actor.container{
+        	display: flex;
+        	justify-content: center;
+        	align-items: center;
+        }
+
+        .shell {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .person {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            width: 300px;
+            margin:0 50px;
+        }
+
+        .box {
+            /* 内置矩形inset（上右下左的边距round上右下左圆角） */
+            clip-path: inset(0px 0px 0px 0px round 0px 0px 520px 520px);
+            height: 500px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .circle {
+            border-radius: 50%;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            transition: transform .3s;
+        }
+
+        .img {
+            position: relative;
+            width: 80%;
+            transform: translateY(80px);
+            transition: transform .3s;
+        }
+
+        .box:hover .img {
+            transform: translateY(26px) scale(1.2);
+        }
+
+        .box:hover .circle {
+            transform: rotate(20deg);
+        }
+
+        .wire {
+            background-color: rgb(255, 255, 255);
+            height: 2px;
+            width: 200px;
+            margin: 20px 0 20px 0;
+        }
+
+        .name {
+			font-family: var(--ffTwo);
+                        /* 使用线性渐变定义背景颜色，从蓝色过渡到红色 */
+                        background: linear-gradient(to right, #007BFF, #FF0000);
+                        /* 将背景裁剪到文字所在区域 */
+                        -webkit-background-clip: text;
+                        background-clip: text;
+                        /* 将文字颜色设置为透明，以便显示背景渐变 */
+                        -webkit-text-fill-color: transparent;
+            font-size: 36px;
+            font-weight: 600;
+        }
+
+        .birthday {
+			font-family: var(--ffTwo);
+                        /* 使用线性渐变定义背景颜色，从蓝色过渡到红色 */
+                        background: linear-gradient(to right,#aa00ff, #ffffff, #aa00ff,#ffffff);
+                        /* 将背景裁剪到文字所在区域 */
+                        -webkit-background-clip: text;
+                        background-clip: text;
+                        /* 将文字颜色设置为透明，以便显示背景渐变 */
+                        -webkit-text-fill-color: transparent;
+            font: 100 14px &#39;arial&#39;;
+            /* 斜体 */
+            font-style: italic;
+        }
+   .ticket {
+      background: url(images/ticket-image-1.jpg) no-repeat;
+      background-size: cover;
+      width: 100%; 
+      height: 1200px; 
+      margin: 0 auto; /* 居中 */
+    }
+
+.ticket.container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+   .ticket-container {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 40px;
+      width: 90%; /* 加宽容器，可根据需要调整这个值 */
+      max-width: 1000px; /* 可设置一个最大宽度 */
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      margin: 0 auto; /* 使容器在页面中水平居中 */
+	  margin-bottom: 25px;
+    }
+
+.title {
+    font-family:(--ffTwo)
+    font-size: 3rem;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.ticket-types {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+}
+
+   .tickets {
+      background: url(images/ticket.png) no-repeat;
+      background-size: 100%;
+      background-position: center;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 20px;
+      width: calc(33.3333% - 13.3333px); /* 修改宽度为三分之一减去间隔的三分之一 */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+
+.tickets:hover {
+    transform: scale(1.05);
+}
+
+.tickets i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #aa0000; /* 橙色，增加万圣节氛围 */
+}
+
+.tickets h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+	color: #ffffff;
+}
+
+.tickets p {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    color: #ccc;
+}
+
+.price {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffffff;
+    -webkit-text-stroke: 1px #aa0000; /* WebKit 内核浏览器（如 Chrome、Safari） */
+    text-stroke: 1px #aa0000; /* 标准属性，部分现代浏览器支持 */
+}
+
+   .more-button {
+      background-color: #ff6600;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      margin-top: 30px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 2px 4px rgba(108, 0, 0, 0.9); /* 添加阴影美化按钮 */
+      outline: none; /* 去除默认的轮廓 */
+      position: relative; /* 为绝对定位做准备 */
+    }
+
+   .more-button:hover {
+      background-color: #ff0000;
+    }
+
+   .more-button:hover::after {
+      content: "";
+      position: absolute;
+      top: -40px; /* 调整距离顶部的位置 */
+      right: -9px; /* 调整距离右侧的位置 */
+      width: 150px; /* 设置图片宽度 */
+      height: 140px; /* 设置图片高度 */
+      background: url(images/jiao.png) no-repeat; /* 引入图片 */
+      background-size: contain; /* 使图片适应容器大小 */
+    }
+
+/* 响应式设计 */
+@media (max-width: 600px) {
+    .tickets {
+        width: 100%;
+    }
+}
