@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <title>门票购买页面</title>
+  <style>
+    body {
+      background: url(images/ticket-image-1.jpg) no-repeat;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+    }
+
+   .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+   .ticket-container {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 40px;
+      width: 90%;
+      max-width: 1200px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      margin: 0 auto;
+      margin-bottom: 25px;
+    }
+
+   .title {
+      font-family: (--ffTwo);
+      font-size: 3rem;
+      margin-bottom: 30px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+   .ticket-types {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 5px;
+    }
+
+   .tickets {
+      background: url(images/ticket.png) no-repeat;
+      background-size: 100%;
+      background-position: center;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 20px;
+      width: calc(25% - 15px);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+   .tickets:hover {
+      transform: scale(1.05);
+    }
+
+   .tickets i {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #aa0000;
+    }
+
+   .tickets h2 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+
+   .tickets p {
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+      color: #ccc;
+    }
+
+   .price {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #ffffff;
+      -webkit-text-stroke: 1px #aa0000;
+      text-stroke: 1px #aa0000;
+    }
+
+   .back-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background-color: orange;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      z-index: 999;
+    }
+
+   .back-button:hover {
+      background-color: rgba(255, 165, 0, 0.8);
+    }
+
+    /* 支付弹窗样式 */
+   .payment-popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #391d5a; 
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+      color: white; /* 文字颜色设为白色，增强可读性 */
+    }
+
+   .payment-popup button {
+      background-color: orange; /* 按钮改为橙色 */
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin: 10px;
+    }
+
+   .payment-popup button:hover {
+      background-color: rgba(255, 165, 0, 0.8);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 添加返回按钮 -->
+  <button class="back-button" onclick="window.location.href='about.html'">返回</button>
+  <div class="container">
+    <div class="ticket-container">
+      <div class="ticket-types">
+        <!-- 单人票 -->
+        <div class="tickets" onclick="openPaymentPopup()">
+          <i class="fas fa-user"></i>
+          <h2>普通单人票</h2>
+          <p>畅享基础万圣节体验</p>
+          <span class="price">￥20</span>
+        </div>
+        <div class="tickets" onclick="openPaymentPopup()">
+          <i class="fas fa-user"></i>
+          <h2>豪华单人票</h2>
+          <p>包含特色表演和美食</p>
+          <span class="price">￥35</span>
+        </div>
+        <div class="tickets" onclick="openPaymentPopup()">
+          <i class="fas fa-user"></i>
+          <h2>至尊单人票</h2>
+          <p>顶级专属体验和纪念品</p>
+          <span class="price">￥50</span>
+        </div>
+        <div class="tickets" onclick="openPaymentPopup()">
+          <i class="fas fa-user"></i>
+          <h2>下午场单人票</h2>
+          <p>体验下午时段的精彩内容</p>
+          <span class="price">￥15</span>
+        </div>
+        <div class="tickets" onclick="openPaymentPopup()">
+          <i class="fas fa-user"></i>
+          <h2>晚上场单人票</h2>
+          <p>感受夜晚独特的惊悚氛围</p>
+          <span class="price">￥25</span>
+        </div>
+        <div class="tickets" onclick="openPaymentPopup()">
+          <i class="fas fa-user"></i>
+          <h2>全天单人票</h2>
+          <p>一整天尽情享受万圣节狂欢</p>
+          <span class="price">￥40</span>
+        </div>
+        <!-- 双人套票 -->
+        <div class="tickets" onclick="openPaymentPopup()">
+          <i class="fas fa-users"></i>
+          <h2>双人套票</h2>
+          <p>和伙伴一起享受惊悚之旅</p>
+          <span class="price">￥60</span>
+        </div>
+        <!-- 新增下午双人票 -->
+        <div class="tickets" onclick="openPaymentPopup()">
+          <i class="fas fa-users"></i>
+          <h2>下午双人票</h2>
+          <p>下午时段双人欢乐体验</p>
+          <span class="price">￥30</span>
+        </div>
+        <!-- 新增晚宴双人票 -->
+        <div class="tickets" onclick="openPaymentPopup()">
+          <i class="fas fa-users"></i>
+          <h2>晚宴双人票</h2>
+          <p>包含晚宴的双人浪漫体验</p>
+          <span class="price">￥50</span>
+        </div>
+        <!-- 新增全天双人票 -->
+        <div class="tickets" onclick="openPaymentPopup()">
+          <i class="fas fa-users"></i>
+          <h2>全天双人票</h2>
+          <p>一整天双人尽情狂欢</p>
+          <span class="price">￥70</span>
+        </div>
+        <!-- 家庭套票 -->
+        <div class="tickets" onclick="openPaymentPopup()">
+          <i class="fas fa-users"></i>
+          <h2>家庭套票</h2>
+          <p>适合全家一起的欢乐派对</p>
+          <span class="price">￥100</span>
+        </div>
+        <!-- 新增家庭下午票 -->
+        <div class="tickets" onclick="openPaymentPopup()">
+          <i class="fas fa-users"></i>
+          <h2>家庭下午票</h2>
+          <p>家庭下午时段的欢乐体验</p>
+          <span class="price">￥60</span>
+        </div>
+        <!-- 新增家庭晚宴票 -->
+        <div class="tickets" onclick="openPaymentPopup()">
+          <i class="fas fa-users"></i>
+          <h2>家庭晚宴票</h2>
+          <p>包含晚宴的家庭欢乐体验</p>
+          <span class="price">￥80</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 支付弹窗 -->
+  <div class="payment-popup" id="paymentPopup">
+    <p>确认支付？</p>
+    <button onclick="confirmPayment()">确认</button>
+    <button onclick="cancelPayment()">取消</button>
+  </div>
+  <script>
+    function openPaymentPopup() {
+      document.getElementById('paymentPopup').style.display = 'block';
+    }
+
+    function confirmPayment() {
+      alert('支付成功');
+      document.getElementById('paymentPopup').style.display = 'none';
+    }
+
+    function cancelPayment() {
+      document.getElementById('paymentPopup').style.display = 'none';
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>万圣节个人主页</title>
+  <link rel="stylesheet" href="login.css">
+  <!-- 引入 Font Awesome 图标库 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <!-- 引入 Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- 顶部导航栏 -->
+  <header>
+    <a href="index.html">返回主页</a>
+    <a href="login.html">登录/注册</a>
+  </header>
+
+  <!-- 用户信息部分 -->
+  <section class="user-info">
+    <img src="images/user-avatar.png" alt="用户头像" class="user-avatar">
+    <div class="display-name">模拟用户名</div>
+    <input type="text" class="edit-name" value="用户名" style="display: none;">
+    <div class="display-details">这里是个人信息，比如爱好、简介等。</div>
+    <textarea class="edit-details" style="display: none;">这里是个人信息，比如爱好、简介等。</textarea>
+    <button class="modify-btn">修改</button>
+    <button class="save-btn" style="display: none;">保存</button>
+  </section>
+
+  <!-- 订单信息部分 -->
+  <section class="order-info">
+    <h2>模拟购票信息</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>购票种类</th>
+          <th>派对时间</th>
+          <th>数量</th>
+          <th>支付金额</th>
+          <th>订单交易时间</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>晚宴双人门票</td>
+          <td>2025.10.20 17:30 - 23:30</td>
+          <td>2</td>
+          <td>200 元</td>
+          <td>2025.9.14 10:24:36</td>
+        </tr>
+        <!-- 可根据需要添加更多订单行 -->
+      </tbody>
+    </table>
+  </section>
+
+  <script src="profile.js"></script>
+</body>
+
+</html>
